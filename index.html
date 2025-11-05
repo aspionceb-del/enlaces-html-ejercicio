@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Enlaces HTML entre archivos del servidor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2em;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.6em;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    pre {
+      background-color: #f9f9f9;
+      padding: 1em;
+      border: 1px solid #ddd;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌐 Enlaces HTML entre archivos del servidor</h1>
+  <p>Este ejercicio muestra cómo construir rutas relativas entre archivos HTML dentro de una estructura de carpetas. La tabla indica desde qué archivo se parte, a cuál se quiere enlazar, y cómo debe escribirse el atributo <code>href</code> en el enlace.</p>
+
+  <h2>📁 Estructura del directorio</h2>
+  <pre>
+server/
+├── arrel.html
+├── fitxers/
+│   └── carta.html
+├── prova/
+│   └── prova.html
+├── subdir/
+│   ├── docu.html
+│   ├── llista.html
+│   ├── index.html
+│   └── direct/
+│       └── textual.html
+  </pre>
+
+  <h2>📋 Tabla de enlaces</h2>
+  <table>
+    <tr>
+      <th>Dónde estoy</th>
+      <th>Dónde quiero enviar al usuario</th>
+      <th>Código del enlace</th>
+    </tr>
+    <tr><td>arrel.html</td><td>textual.html</td><td>&lt;a href="subdir/direct/textual.html"&gt;texto enlace&lt;/a&gt;</td></tr>
+    <tr><td>docu.html</td><td>llista.html</td><td>&lt;a href="llista.html"&gt;texto enlace&lt;/a&gt;</td></tr>
+    <tr><td>docu.html</td><td>textual.html</td><td>&lt;a href="textual.html"&gt;texto enlace&lt;/a&gt;</td></tr>
+    <tr><td>carta.html</td><td>prova.html</td><td>&lt;a href="../prova/prova.html"&gt;texto enlace&lt;/a&gt;</td></tr>
+    <tr><td>textual.html</td><td>arrel.html</td><td>&lt;a href="../../../arrel.html"&gt;texto enlace&lt;/a&gt;</td></tr>
+    <tr><td>textual.html</td><td>subdir (carpeta)</td><td>&lt;a href="../../../subdir/"&gt;texto enlace&lt;/a&gt;</td></tr>
+    <tr><td>textual.html</td><td>prova (carpeta)</td><td>&lt;a href="../../../prova/"&gt;texto enlace&lt;/a&gt;</td></tr>
+    <tr><td>textual.html</td><td>prova.html</td><td>&lt;a href="../../../prova/prova.html"&gt;texto enlace&lt;/a&gt;</td></tr>
+  </table>
+
+  <h2>✅ Notas</h2>
+  <ul>
+    <li>Las rutas son <strong>relativas</strong>, es decir, se construyen desde el archivo origen hacia el destino.</li>
+    <li><code>../</code> significa “subir un nivel” en la jerarquía de carpetas.</li>
+    <li>Es importante respetar la estructura para que los enlaces funcionen correctamente en GitHub Pages.</li>
+  </ul>
+
+</body>
+</html>
